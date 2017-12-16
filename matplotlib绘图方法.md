@@ -50,7 +50,8 @@ ax5.set_xlim(-1, len(df.Embarked.value_counts()))
 plt.title("Passengers per boarding location")
 ```
 
-代码中涉及的函数有：
+### 代码中涉及的函数有：
+
 #### plt.figure()
 创建一个图表，可以通过参数指定图表的属性
 ```
@@ -86,8 +87,19 @@ alpha:
 #### plt.title()
 为图表添加标题
 
-#### plt.scatter()
+#### plt.scatter()
 绘制散点图，参数分别为点的x，y坐标
 ```python
 plt.scatter(x, y)
+```
+
+#### set_xlim() set_ylim()
+在绘制bar/barh图时，需要设置x，y轴的起始位置，这样可以让图表显得更加紧凑
+```python
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6, 4))
+fig, ax = plt.subplots()
+df.Survived.value_counts().plot(kind='barh', color="blue", alpha=.65)
+ax.set_ylim(-1, 2) # y轴坐标限制在-1到2之间
 ```
